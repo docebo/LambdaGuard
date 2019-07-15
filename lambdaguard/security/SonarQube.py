@@ -29,8 +29,8 @@ sonar.host.url={}
 sonar.login={}
 sonar.password={}
 sonar.language={}
-sonar.projectKey=lambdaguard
-sonar.projectName=lambdaguard
+sonar.projectKey={}
+sonar.projectName={}
 sonar.sourceEncoding=UTF-8
 sonar.sources=.
 sonar.java.binaries=.
@@ -76,7 +76,9 @@ class SonarQube:
                 self.config['url'],
                 self.config['login'],
                 self.config['password'],
-                language
+                language,
+		self.config['projectKey'],                          
+                self.config['projectName'] 
             )
         )
 
