@@ -49,7 +49,7 @@ class SonarQube:
         rmtree(self.downloads, ignore_errors=True)
         pass
 
-    def scan(self, codeURL, handler, runtime):
+    def scan(self, function, codeURL, handler, runtime):
         codepath = handler.split(".")[0]
         zippath = self.downloads.joinpath('lambda.zip')
         zippath.write_bytes(requests.get(codeURL).content)
@@ -78,8 +78,8 @@ class SonarQube:
                 self.config['login'],
                 self.config['password'],
                 language,
-		self.config['projectKey'],
-                self.config['projectName']
+		function,
+                function
             )
         )
 

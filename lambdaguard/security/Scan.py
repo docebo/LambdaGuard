@@ -172,6 +172,7 @@ class Scan:
         # SonarQube
         if self.args.sonarqube:
             for _ in self.sonarqube.scan(
+                self.report['policy']['function']['Statement'][0]['Resource'],        
                 self.report['codeURL'],
                 self.report['handler'],
                 self.report['runtime']
