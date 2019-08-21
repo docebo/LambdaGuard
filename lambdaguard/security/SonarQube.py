@@ -58,11 +58,9 @@ class SonarQube:
         zf = ZipFile(zippath)
 
         # Unzip Lambda source code
-        print(zf.namelist())
         for _ in zf.namelist():
             if _.startswith(codepath):
                 zf.extractall(self.downloads, members=[_])
-        return
         # Configure sonar-project.properties
         if runtime.startswith('python'):
             language = 'py'
